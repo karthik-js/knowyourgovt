@@ -24,13 +24,6 @@
 			>
 				Access Directory
 			</a>
-			<button
-				type="button"
-				onclick={() => document.getElementById('discourse')?.scrollIntoView({ behavior: 'smooth' })}
-				class="button-secondary px-6 py-3 font-sans text-sm font-semibold uppercase tracking-widest"
-			>
-				Read the Manifesto
-			</button>
 		</div>
 	</section>
 

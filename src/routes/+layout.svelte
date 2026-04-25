@@ -15,7 +15,7 @@
 </svelte:head>
 
 <div class="flex min-h-screen flex-col bg-[#fbf9f4] text-[#1b1c19] font-serif antialiased">
-	<Navbar variant={navVariant} />
+	<Navbar />
 	<main class="flex-grow">
 		{@render children()}
 	</main>
