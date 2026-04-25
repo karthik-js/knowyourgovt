@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Know Your Government - GO Directory</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&amp;family=Public+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary": "#ffffff",
+                      "surface-container-high": "#eae8e3",
+                      "tertiary": "#000000",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary": "#ffffff",
+                      "surface-container-low": "#f5f3ee",
+                      "secondary": "#5f5e5e",
+                      "on-tertiary-fixed-variant": "#484645",
+                      "on-secondary-fixed-variant": "#474747",
+                      "on-primary-fixed-variant": "#474646",
+                      "surface-container": "#f0eee9",
+                      "inverse-on-surface": "#f2f1ec",
+                      "on-background": "#1b1c19",
+                      "error-container": "#ffdad6",
+                      "secondary-fixed": "#e4e2e1",
+                      "background": "#fbf9f4",
+                      "secondary-container": "#e4e2e1",
+                      "on-error": "#ffffff",
+                      "outline": "#747878",
+                      "on-secondary-fixed": "#1b1c1c",
+                      "tertiary-fixed-dim": "#cac6c3",
+                      "secondary-fixed-dim": "#c8c6c6",
+                      "on-error-container": "#93000a",
+                      "surface-tint": "#5f5e5e",
+                      "primary-fixed-dim": "#c8c6c5",
+                      "on-secondary-container": "#656464",
+                      "surface-variant": "#e4e2dd",
+                      "surface-container-highest": "#e4e2dd",
+                      "on-surface-variant": "#444748",
+                      "inverse-primary": "#c8c6c5",
+                      "on-tertiary-container": "#868381",
+                      "on-primary-container": "#858383",
+                      "on-secondary": "#ffffff",
+                      "on-primary-fixed": "#1c1b1b",
+                      "primary-container": "#1c1b1b",
+                      "inverse-surface": "#30312e",
+                      "on-surface": "#1b1c19",
+                      "outline-variant": "#c4c7c7",
+                      "on-tertiary-fixed": "#1d1b1a",
+                      "surface-dim": "#dbdad5",
+                      "tertiary-container": "#1d1b1a",
+                      "surface": "#fbf9f4",
+                      "surface-bright": "#fbf9f4",
+                      "primary": "#000000",
+                      "primary-fixed": "#e5e2e1",
+                      "error": "#ba1a1a",
+                      "tertiary-fixed": "#e6e1df"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "section-gap": "80px",
+                      "margin-edge": "48px",
+                      "gutter": "24px",
+                      "container-max": "1140px",
+                      "unit": "4px",
+                      "stack-md": "24px",
+                      "stack-sm": "8px",
+                      "stack-lg": "48px"
+              },
+              "fontFamily": {
+                      "headline-sm": [
+                              "Newsreader"
+                      ],
+                      "headline-lg": [
+                              "Newsreader"
+                      ],
+                      "headline-md": [
+                              "Newsreader"
+                      ],
+                      "body-md": [
+                              "Newsreader"
+                      ],
+                      "body-lg": [
+                              "Newsreader"
+                      ],
+                      "label-sm": [
+                              "Public Sans"
+                      ],
+                      "label-lg": [
+                              "Public Sans"
+                      ]
+              },
+              "fontSize": {
+                      "headline-sm": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "letterSpacing": "0",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-md": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "20px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "letterSpacing": "0",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "0.04em",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-lg": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "0.06em",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 full-width top-0">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-7xl mx-auto">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4">
+<img alt="Portal Seal" class="w-10 h-10 object-contain rounded-full" data-alt="Official looking crest or seal, minimalist black and white line art, academic style" src="https://lh3.googleusercontent.com/aida/ADBb0uj7hsekEXnnEfEfgOACqpHOCWrb3hpBfLcqIY4pQHmMzuLJwjKf2MqZG70BnlyRT48vGkAAURqWE0ad6E1NTtlg-uLSe4fmc5qILZSznlF7v2b-OAeILo2R8YtYlQtoZuJ6-YKwtOX7DuQReG5JfG82SvZkHI6O227s80Fb0oDKQGnL-9cihKRSBrStkIUZVjEp5pZDqbKFmLy-dgbkju5N5h18FiYKbLpTiVPBYVaCVzV8jR9gOC7xnAwkZ-DXueEp6UxTCcCvfA"/>
+<span class="font-serif text-xl font-black uppercase tracking-tighter text-zinc-950 dark:text-zinc-50">Know Your Government</span>
+</div>
+<nav class="hidden md:flex gap-6 font-serif uppercase tracking-wider text-sm">
+<a class="text-zinc-950 dark:text-zinc-50 font-bold pb-1 cursor-pointer active:opacity-80" href="#">GO Directory</a>
+<a class="text-zinc-500 dark:text-zinc-400 hover:bg-zinc-950 hover:text-zinc-50 dark:hover:bg-zinc-50 dark:hover:text-zinc-950 transition-none cursor-pointer active:opacity-80 pb-1" href="#">States</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex items-center gap-2 cursor-pointer active:opacity-80 font-serif uppercase tracking-wider text-sm text-zinc-500 dark:text-zinc-400 hover:bg-zinc-950 hover:text-zinc-50 dark:hover:bg-zinc-50 dark:hover:text-zinc-950 transition-none px-2 py-1">
+<span>Andhra Pradesh</span>
+<span class="material-symbols-outlined text-[16px]">arrow_drop_down</span>
+</div>
+<button class="cursor-pointer active:opacity-80 hover:bg-zinc-950 hover:text-zinc-50 dark:hover:bg-zinc-50 dark:hover:text-zinc-950 transition-none p-2 rounded-none flex items-center justify-center">
+<span class="material-symbols-outlined">account_balance</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow w-full max-w-container-max mx-auto px-margin-edge py-section-gap flex flex-col md:flex-row gap-gutter">
+<!-- Sidebar Filters -->
+<aside class="w-full md:w-64 flex-shrink-0 flex flex-col gap-stack-md border-r-0 md:pr-gutter">
+<div>
+<h2 class="font-label-lg text-label-lg uppercase text-primary pb-unit mb-stack-sm">Date Range</h2>
+<div class="flex flex-col gap-unit">
+<div class="relative w-full">
+<label class="font-label-sm text-label-sm uppercase text-secondary block mb-1" for="start-date">From</label>
+<input class="w-full bg-transparent border-0 border-b border-primary border-[0.5px] rounded-none px-0 py-unit font-body-md text-body-md focus:ring-0 focus:border-b-2 focus:border-primary transition-none appearance-none" id="start-date" type="date"/>
+</div>
+<div class="relative w-full mt-stack-sm">
+<label class="font-label-sm text-label-sm uppercase text-secondary block mb-1" for="end-date">To</label>
+<input class="w-full bg-transparent border-0 border-b border-primary border-[0.5px] rounded-none px-0 py-unit font-body-md text-body-md focus:ring-0 focus:border-b-2 focus:border-primary transition-none appearance-none" id="end-date" type="date"/>
+</div>
+<button class="mt-stack-md w-full bg-primary text-on-primary font-label-lg text-label-lg uppercase py-2 border border-primary hover:bg-on-primary hover:text-primary transition-none">Apply Filter</button>
+</div>
+</div>
+</aside>
+<!-- Directory Content -->
+<div class="flex-grow flex flex-col gap-stack-lg">
+<!-- Search & Meta -->
+<div class="flex flex-col gap-stack-md pb-stack-md">
+<h1 class="font-headline-lg text-headline-lg text-primary">Government Orders Directory</h1>
+<div class="relative w-full">
+<input class="w-full bg-surface-container-low rounded-none px-4 py-3 font-body-lg text-body-lg focus:ring-0 focus:bg-surface-container-high transition-none pl-12" placeholder="Search by GO Number, Subject, or Department..." type="text"/>
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-secondary">search</span>
+</div>
+<div class="flex justify-between items-center font-label-sm text-label-sm text-secondary uppercase">
+<span>Showing 1-10 of 1,245 Orders</span>
+<span>Sorted by: Date (Newest First)</span>
+</div>
+</div>
+<!-- GO Feed -->
+<div class="flex flex-col gap-stack-md">
+<!-- Card 1 -->
+<article class="py-stack-md border-b border-outline-variant border-[0.5px] flex flex-col gap-stack-sm hover:bg-surface-container-low transition-none cursor-pointer px-4 -mx-4 rounded-lg">
+<div class="flex justify-between items-start mb-unit">
+<div class="flex gap-2 items-center">
+<span class="bg-surface-container px-2 py-0.5 font-label-sm text-label-sm uppercase text-primary rounded-sm">G.O.Ms.No. 42</span>
+<span class="font-label-sm text-label-sm text-secondary uppercase">24 Oct 2023</span>
+</div>
+<span class="material-symbols-outlined text-secondary">download</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary">Revised Administrative Sanction for Construction of Medical College</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Health, Medical &amp; Family Welfare Department - Revised Administrative Sanction accorded for construction of new Medical College and General Hospital at an estimated cost of Rs. 450 Crores.</p>
+<div class="mt-unit pt-unit flex gap-4 font-label-sm text-label-sm uppercase text-secondary">
+<span>Dept: HM&amp;FW</span>
+<span>Type: Routine</span>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="py-stack-md border-b border-outline-variant border-[0.5px] flex flex-col gap-stack-sm hover:bg-surface-container-low transition-none cursor-pointer px-4 -mx-4 rounded-lg">
+<div class="flex justify-between items-start mb-unit">
+<div class="flex gap-2 items-center">
+<span class="bg-surface-container px-2 py-0.5 font-label-sm text-label-sm uppercase text-primary rounded-sm">G.O.Rt.No. 115</span>
+<span class="font-label-sm text-label-sm text-secondary uppercase">18 Oct 2023</span>
+</div>
+<span class="material-symbols-outlined text-secondary">download</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary">Constitution of State Level Steering Committee for Smart Cities</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Municipal Administration and Urban Development - Formation of State Level Steering Committee to oversee implementation of Smart City Projects in designated urban local bodies across the state.</p>
+<div class="mt-unit pt-unit flex gap-4 font-label-sm text-label-sm uppercase text-secondary">
+<span>Dept: MA&amp;UD</span>
+<span>Type: Policy</span>
+</div>
+</article>
+<!-- Card 3 -->
+<article class="py-stack-md border-b border-outline-variant border-[0.5px] flex flex-col gap-stack-sm hover:bg-surface-container-low transition-none cursor-pointer px-4 -mx-4 rounded-lg">
+<div class="flex justify-between items-start mb-unit">
+<div class="flex gap-2 items-center">
+<span class="bg-surface-container px-2 py-0.5 font-label-sm text-label-sm uppercase text-primary rounded-sm">G.O.Ms.No. 89</span>
+<span class="font-label-sm text-label-sm text-secondary uppercase">05 Oct 2023</span>
+</div>
+<span class="material-symbols-outlined text-secondary">download</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary">Release of Funds for Kharif Season Crop Insurance</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Agriculture &amp; Cooperation Department - Administrative sanction and release of Rs. 1200 Crores towards state share of premium for implementing crop insurance scheme for the current Kharif season.</p>
+<div class="mt-unit pt-unit flex gap-4 font-label-sm text-label-sm uppercase text-secondary">
+<span>Dept: Agriculture</span>
+<span>Type: Financial</span>
+</div>
+</article>
+</div>
+<!-- Pagination -->
+<div class="flex justify-center items-center gap-4 mt-stack-md font-label-lg text-label-lg uppercase">
+<button class="px-4 py-2 text-secondary opacity-50 cursor-not-allowed rounded-md hover:bg-surface-container-low transition-colors">Previous</button>
+<span class="text-primary font-bold">Page 1 of 125</span>
+<button class="px-4 py-2 text-primary rounded-md hover:bg-surface-container transition-colors">Next</button>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-zinc-50 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 full-width border-t border-t border-zinc-950 dark:border-zinc-50 border-[0.5px]">
+<div class="w-full py-12 px-8 flex flex-col md:flex-row justify-between items-center border-t border-zinc-950 max-w-7xl mx-auto">
+<div class="font-serif font-bold uppercase tracking-tight text-xs mb-4 md:mb-0">
+                © Know Your Government
+            </div>
+<nav class="flex flex-wrap justify-center gap-6 font-serif text-xs tracking-tight">
+<a class="text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-zinc-50 transition-colors duration-150" href="#">Terms of Service</a>
+<a class="text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-zinc-50 transition-colors duration-150" href="#">Cookie Policy</a>
+<a class="text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-zinc-50 transition-colors duration-150" href="#">Help Center</a>
+<a class="text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-zinc-50 transition-colors duration-150" href="#">Contact Us</a>
+</nav>
+</div>
+</footer>
+</body></html>

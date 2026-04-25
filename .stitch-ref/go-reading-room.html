@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GO Reading Room - Know Your Government</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Public+Sans:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary": "#ffffff",
+                        "surface-container-high": "#eae8e3",
+                        "tertiary": "#000000",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#f5f3ee",
+                        "secondary": "#5f5e5e",
+                        "on-tertiary-fixed-variant": "#484645",
+                        "on-secondary-fixed-variant": "#474747",
+                        "on-primary-fixed-variant": "#474646",
+                        "surface-container": "#f0eee9",
+                        "inverse-on-surface": "#f2f1ec",
+                        "on-background": "#1b1c19",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed": "#e4e2e1",
+                        "background": "#fbf9f4",
+                        "secondary-container": "#e4e2e1",
+                        "on-error": "#ffffff",
+                        "outline": "#747878",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "tertiary-fixed-dim": "#cac6c3",
+                        "secondary-fixed-dim": "#c8c6c6",
+                        "on-error-container": "#93000a",
+                        "surface-tint": "#5f5e5e",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "on-secondary-container": "#656464",
+                        "surface-variant": "#e4e2dd",
+                        "surface-container-highest": "#e4e2dd",
+                        "on-surface-variant": "#444748",
+                        "inverse-primary": "#c8c6c5",
+                        "on-tertiary-container": "#868381",
+                        "on-primary-container": "#858383",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#1c1b1b",
+                        "primary-container": "#1c1b1b",
+                        "inverse-surface": "#30312e",
+                        "on-surface": "#1b1c19",
+                        "outline-variant": "#c4c7c7",
+                        "on-tertiary-fixed": "#1d1b1a",
+                        "surface-dim": "#dbdad5",
+                        "tertiary-container": "#1d1b1a",
+                        "surface": "#fbf9f4",
+                        "surface-bright": "#fbf9f4",
+                        "primary": "#000000",
+                        "primary-fixed": "#e5e2e1",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed": "#e6e1df"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "80px",
+                        "margin-edge": "48px",
+                        "gutter": "24px",
+                        "container-max": "1140px",
+                        "unit": "4px",
+                        "stack-md": "24px",
+                        "stack-sm": "8px",
+                        "stack-lg": "48px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Newsreader"],
+                        "headline-lg": ["Newsreader"],
+                        "headline-md": ["Newsreader"],
+                        "body-md": ["Newsreader"],
+                        "body-lg": ["Newsreader"],
+                        "label-sm": ["Public Sans"],
+                        "label-lg": ["Public Sans"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["24px", { "lineHeight": "1.3", "letterSpacing": "0", "fontWeight": "500" }],
+                        "headline-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "headline-md": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "400" }],
+                        "body-lg": ["20px", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "1.2", "letterSpacing": "0.04em", "fontWeight": "400" }],
+                        "label-lg": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.06em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 font-serif uppercase tracking-wider text-sm w-full top-0 border-b border-zinc-950 dark:border-zinc-50 border-[0.5px]">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-7xl mx-auto">
+<div class="flex items-center gap-8">
+<a class="font-serif text-xl font-black uppercase tracking-tighter text-zinc-950 dark:text-zinc-50 flex items-center gap-2" href="#">
+<img alt="Portal Seal" class="w-8 h-8 object-cover rounded-full border-[0.5px] border-primary" data-alt="Official looking golden state seal or emblem on a dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1-pFngo02oy7yFY_pIhjg1gnXprZCQBD3tHex5am8CxbFg4SJSiZfHiY1p56iTn7zaDqceTK5e-tKZmTcbAeBdrd9r2GhzhVoJKRID9ndfcB-Y4Zc2L0beJ5C48MCF77TX6ofPi3wnMbKC67EoJ4D0luaGw6JlVLj15aq2IICVPE-RsjF-SBjGoYQJa_IveudA2JJWNYuNjLOWS99d4gO7DjyTIjcffFq4HL2Jsa0nIRf3UESnMTqaZQE8R_oBfiSSm9GtrkEjXI"/>
+                    Know Your Government
+                </a>
+<nav class="hidden md:flex gap-6">
+<a class="text-zinc-950 dark:text-zinc-50 font-bold border-b border-zinc-950 dark:border-zinc-50 pb-1 cursor-pointer active:opacity-80 transition-none" href="#">GO Directory</a>
+<a class="text-zinc-500 dark:text-zinc-400 hover:bg-zinc-950 hover:text-zinc-50 dark:hover:bg-zinc-50 dark:hover:text-zinc-950 transition-none cursor-pointer active:opacity-80 px-2 py-1" href="#">States</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<select class="appearance-none bg-transparent border-b border-primary text-primary font-label-lg text-label-lg py-1 pr-8 pl-2 focus:outline-none focus:border-b-2 focus:border-primary cursor-pointer">
+<option value="ap">Andhra Pradesh</option>
+<option value="ts">Telangana</option>
+<option value="mh">Maharashtra</option>
+</select>
+<span class="material-symbols-outlined absolute right-1 top-1/2 -translate-y-1/2 pointer-events-none text-primary text-sm">arrow_drop_down</span>
+</div>
+<button class="flex items-center justify-center p-2 hover:bg-zinc-950 hover:text-zinc-50 dark:hover:bg-zinc-50 dark:hover:text-zinc-950 transition-none cursor-pointer active:opacity-80 border border-transparent">
+<span class="material-symbols-outlined" data-icon="account_balance">account_balance</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content Split Pane -->
+<main class="flex-grow flex flex-col lg:flex-row w-full max-w-[1600px] mx-auto border-x-[0.5px] border-primary h-[calc(100vh-73px)]">
+<!-- Left Pane: PDF Viewer Area -->
+<section class="flex-grow w-full lg:w-2/3 flex flex-col border-b lg:border-b-0 lg:border-r-[0.5px] border-primary bg-surface-container-lowest overflow-hidden">
+<!-- Document Toolbar -->
+<div class="flex items-center justify-between px-gutter py-unit border-b-[0.5px] border-primary bg-surface">
+<div class="flex items-center gap-4">
+<span class="font-label-sm text-label-sm text-secondary uppercase border-[0.5px] border-primary px-2 py-1">GO Ms. No. 42</span>
+<span class="font-body-md text-body-md text-primary">Department of Finance</span>
+</div>
+<div class="flex gap-2">
+<button class="p-1 border-[0.5px] border-transparent hover:border-primary transition-none" title="Zoom Out">
+<span class="material-symbols-outlined text-primary" style="font-size: 20px;">remove</span>
+</button>
+<span class="font-label-sm text-label-sm flex items-center px-2">100%</span>
+<button class="p-1 border-[0.5px] border-transparent hover:border-primary transition-none" title="Zoom In">
+<span class="material-symbols-outlined text-primary" style="font-size: 20px;">add</span>
+</button>
+<div class="w-[1px] h-4 bg-primary mx-2 self-center"></div>
+<button class="p-1 border-[0.5px] border-transparent hover:border-primary transition-none" title="Download">
+<span class="material-symbols-outlined text-primary" style="font-size: 20px;">download</span>
+</button>
+</div>
+</div>
+<!-- Simulated PDF Canvas -->
+<div class="flex-grow bg-surface-container overflow-auto p-gutter flex justify-center">
+<div class="w-full max-w-[800px] min-h-[1056px] bg-white border-[1px] border-primary shadow-sm p-margin-edge flex flex-col gap-stack-md relative">
+<!-- Faux PDF Content -->
+<div class="text-center mb-stack-lg border-b-[0.5px] border-primary pb-stack-md">
+<h2 class="font-headline-md text-headline-md text-primary font-bold uppercase tracking-wide">Government of Andhra Pradesh</h2>
+<h3 class="font-headline-sm text-headline-sm text-secondary mt-2">Abstract</h3>
+</div>
+<p class="font-body-md text-body-md text-primary text-justify leading-relaxed">
+                        FINANCE (HR.I-Plg. &amp; Policy) DEPARTMENT - Public Services - Implementation of 11th Pay Revision Commission - Master Scale - Revised Scales of Pay 2022 - Orders - Issued.
+                    </p>
+<div class="flex justify-between items-center border-y-[0.5px] border-primary py-stack-sm my-stack-sm">
+<span class="font-label-lg text-label-lg uppercase">G.O.Ms.No.1</span>
+<span class="font-label-lg text-label-lg uppercase">Dated: 17-01-2022</span>
+</div>
+<h4 class="font-label-lg text-label-lg uppercase mb-2">Read the following:</h4>
+<ol class="list-decimal list-inside font-body-md text-body-md text-primary space-y-2 ml-4">
+<li>G.O.Ms.No.75, General Administration (SC.A) Department, dated 28.05.2018.</li>
+<li>G.O.Rt.No.75, General Administration (SC.A) Department, dated 02.06.2018.</li>
+<li>Report of the 11th Pay Revision Commission submitted on 05.10.2020.</li>
+</ol>
+<div class="mt-stack-lg text-center uppercase font-label-lg text-label-lg">
+                        ***
+                    </div>
+<h4 class="font-label-lg text-label-lg uppercase mt-stack-md mb-2">Order:</h4>
+<p class="font-body-md text-body-md text-primary text-justify leading-relaxed indent-8">
+                        The Government of Andhra Pradesh constituted the 11th Pay Revision Commission vide the orders first read above. The Commission submitted its report to the Government on 05.10.2020. Government have constituted a Committee of Secretaries vide G.O.Rt.No.1420, General Administration (SC.A) Department, dated 25.06.2021 to examine the recommendations of the 11th Pay Revision Commission.
+                    </p>
+<p class="font-body-md text-body-md text-primary text-justify leading-relaxed indent-8 mt-4">
+                        2. Government, after careful consideration of the recommendations of the 11th Pay Revision Commission and the report of the Committee of Secretaries, hereby order the implementation of the Revised Master Scale to the State Government Employees as detailed below.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Right Pane: Document Insights -->
+<aside class="w-full lg:w-1/3 bg-surface flex flex-col h-full overflow-hidden">
+<div class="p-gutter border-b-[0.5px] border-primary bg-surface-container-low flex items-center justify-between">
+<h2 class="font-headline-sm text-headline-sm text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-weight="fill">lightbulb</span>
+                    Document Insights
+                </h2>
+<span class="font-label-sm text-label-sm text-secondary border-[0.5px] border-secondary px-2 py-1 uppercase tracking-wider">AI Generated</span>
+</div>
+<div class="flex-grow overflow-auto p-gutter space-y-stack-lg">
+<!-- Summary Section -->
+<section>
+<h3 class="font-label-lg text-label-lg text-primary uppercase border-b-[0.5px] border-primary pb-2 mb-stack-md">Executive Summary</h3>
+<p class="font-body-md text-body-md text-primary leading-relaxed bg-surface-container p-4 border-[0.5px] border-primary">
+                        This Government Order officially mandates the implementation of the 11th Pay Revision Commission's recommendations for State Government employees in Andhra Pradesh, establishing the new Revised Master Scale for 2022 following reviews by specialized committees.
+                    </p>
+</section>
+<!-- Key Takeaways Section -->
+<section>
+<h3 class="font-label-lg text-label-lg text-primary uppercase border-b-[0.5px] border-primary pb-2 mb-stack-md">Key Takeaways</h3>
+<ul class="space-y-4">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-1 text-[16px]">play_arrow</span>
+<span class="font-body-md text-body-md text-primary">Implementation of the 11th PRC recommendations is approved.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-1 text-[16px]">play_arrow</span>
+<span class="font-body-md text-body-md text-primary">A new Master Scale for the year 2022 is established for all eligible state employees.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-1 text-[16px]">play_arrow</span>
+<span class="font-body-md text-body-md text-primary">The decision follows a review by a dedicated Committee of Secretaries constituted in June 2021.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-1 text-[16px]">play_arrow</span>
+<span class="font-body-md text-body-md text-primary">Supersedes previous preliminary orders regarding interim relief related to the 11th PRC.</span>
+</li>
+</ul>
+</section>
+</div>
+<div class="p-gutter border-t-[0.5px] border-primary bg-surface-container-low mt-auto">
+<button class="w-full border-[1px] border-primary bg-primary text-on-primary font-label-lg text-label-lg uppercase tracking-wider py-3 hover:bg-surface-container-lowest hover:text-primary transition-none flex justify-center items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">share</span>
+                    Share Insights
+                </button>
+</div>
+</aside>
+</main>
+<!-- Footer -->
+<footer class="bg-zinc-50 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 font-serif text-xs tracking-tight w-full py-12 px-8 flex flex-col md:flex-row justify-between items-center border-t border-zinc-950 dark:border-zinc-50 border-[0.5px]">
+<div class="font-serif font-bold uppercase mb-4 md:mb-0">
+            Know Your Government © 2024
+        </div>
+<nav class="flex flex-wrap justify-center gap-4 md:gap-6">
+<a class="text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-zinc-50 transition-colors duration-150" href="#">Terms of Service</a>
+<a class="text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-zinc-50 transition-colors duration-150" href="#">Cookie Policy</a>
+<a class="text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-zinc-50 transition-colors duration-150" href="#">Help Center</a>
+<a class="text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-zinc-50 transition-colors duration-150" href="#">Contact Us</a>
+</nav>
+</footer>
+</body></html>
