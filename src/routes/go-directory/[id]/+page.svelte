@@ -2,6 +2,7 @@
 	import AIInsights from '$lib/components/AIInsights.svelte';
 
 	let zoom = $state(100);
+	let showInsights = $state(false);
 
 	const summary =
 		'This order authorizes the allocation of ₹450 Crores for urban infrastructure. It specifically targets municipal development and mandates the Director of Municipal Administration to initiate fund distribution for ongoing projects.';
@@ -18,20 +19,20 @@
 	<title>GO Reading Room - Know Your Government</title>
 </svelte:head>
 
-<div class="mx-auto flex h-[calc(100vh-64px)] w-full max-w-[1440px]">
+<div class="mx-auto flex w-full max-w-[1440px] flex-col lg:h-[calc(100vh-64px)] lg:flex-row">
 	<!-- Document Viewer -->
-	<section class="flex min-w-0 flex-1 flex-col border-r border-slate-200 bg-white">
+	<section class="flex min-h-[60vh] min-w-0 flex-1 flex-col border-r border-slate-200 bg-white lg:min-h-0">
 		<!-- Toolbar -->
-		<div class="flex flex-shrink-0 items-center justify-between p-6">
-			<div class="flex items-center gap-4">
+		<div class="sticky top-16 z-10 flex flex-shrink-0 flex-wrap items-center gap-3 bg-white p-4 sm:p-6 lg:static">
+			<div class="flex flex-wrap items-center gap-3 sm:gap-4">
 				<button class="flex items-center gap-2 font-semibold text-[#004B87] transition-all hover:opacity-80">
 					<span class="material-symbols-outlined">arrow_back</span>
 					<span class="font-sans text-xs font-medium uppercase tracking-widest">Back to Results</span>
 				</button>
-				<div class="h-4 w-px bg-slate-200"></div>
-				<span class="font-sans text-xs font-medium uppercase tracking-widest text-slate-500">GO.MS.No 42 | FINANCE DEPARTMENT</span>
+				<div class="hidden h-4 w-px bg-slate-200 min-[480px]:block"></div>
+				<span class="w-full font-sans text-xs font-medium uppercase tracking-widest text-slate-500 min-[480px]:w-auto">GO.MS.No 42 | FINANCE DEPARTMENT</span>
 			</div>
-			<div class="flex items-center gap-2">
+			<div class="ml-auto flex items-center gap-2">
 				<button
 					onclick={() => { if (zoom > 25) zoom -= 25; }}
 					class="rounded bg-slate-100 p-2 transition-colors hover:bg-slate-200"
@@ -48,13 +49,20 @@
 					<span class="material-symbols-outlined" style="font-size: 20px;">download</span>
 					<span class="font-sans text-xs font-medium">PDF</span>
 				</button>
+				<button
+					class="flex items-center gap-1.5 rounded bg-slate-100 px-3 py-2 font-sans text-xs font-semibold text-primary transition-colors hover:bg-slate-200 lg:hidden"
+					onclick={() => showInsights = !showInsights}
+				>
+					<span class="material-symbols-outlined" style="font-size: 20px;">analytics</span>
+					Insights
+				</button>
 			</div>
 		</div>
 
 		<!-- PDF Canvas (scrollable) -->
-		<div class="min-h-0 flex-1 overflow-y-auto border-t border-outline-variant bg-surface-container-low p-12 shadow-inner">
+		<div class="min-h-0 flex-1 overflow-y-auto border-t border-outline-variant bg-surface-container-low p-4 shadow-inner sm:p-6 md:p-12">
 			<div
-				class="relative mx-auto min-h-[1000px] max-w-[700px] border border-slate-200 bg-white p-16 shadow-lg"
+				class="relative mx-auto min-h-[1000px] max-w-[700px] border border-slate-200 bg-white p-6 shadow-lg sm:p-10 md:p-16"
 				style="transform: scale({zoom / 100}); transform-origin: top center;"
 			>
 				<!-- Government Seal Header -->
@@ -106,8 +114,30 @@
 		</div>
 	</section>
 
-	<!-- AI Insights Sidebar -->
-	<div class="w-[350px] flex-shrink-0">
+	<!-- AI Insights Sidebar (desktop: inline, mobile: slide-over) -->
+	<div class="hidden lg:block lg:w-[350px] lg:flex-shrink-0">
 		<AIInsights {summary} {takeaways} />
+	</div>
+</div>
+
+<!-- Mobile Sidebar Overlay -->
+{#if showInsights}
+	<div class="fixed inset-0 z-40 bg-black/40 lg:hidden" onclick={() => showInsights = false} role="presentation"></div>
+{/if}
+<div
+	class="fixed top-0 right-0 z-50 h-full w-[320px] max-w-[85vw] transform shadow-xl transition-transform duration-300 ease-in-out lg:hidden"
+	class:translate-x-0={showInsights}
+	class:translate-x-full={!showInsights}
+>
+	<div class="flex h-full flex-col">
+		<div class="flex items-center justify-between border-b border-slate-200 bg-[#F4F5F7] px-4 py-3">
+			<span class="font-serif text-lg font-bold">Insights</span>
+			<button onclick={() => showInsights = false} class="rounded p-1 hover:bg-slate-200">
+				<span class="material-symbols-outlined">close</span>
+			</button>
+		</div>
+		<div class="flex-1 overflow-y-auto">
+			<AIInsights {summary} {takeaways} />
+		</div>
 	</div>
 </div>

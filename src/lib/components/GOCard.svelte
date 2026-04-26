@@ -15,8 +15,8 @@
 	let { order }: { order: GOOrder } = $props();
 </script>
 
-<article class="group rounded border border-outline-variant bg-white p-5 shadow-sm transition-colors hover:bg-slate-50">
-	<div class="mb-3 flex items-start justify-between">
+<article class="group rounded border border-outline-variant bg-white p-4 shadow-sm transition-colors hover:bg-slate-50 sm:p-5">
+	<div class="mb-3 flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
 		<span class="font-sans text-[13px] font-semibold uppercase tracking-widest text-primary">{order.department}</span>
 		<div class="flex items-center gap-2">
 			<span class="font-sans text-xs text-slate-400">{order.date}</span>
@@ -33,8 +33,8 @@
 	</h2>
 	<p class="mb-4 line-clamp-2 font-sans text-sm text-slate-500">{order.description}</p>
 
-	<div class="flex items-center justify-between border-t border-slate-100 pt-4">
-		<div class="flex items-center gap-6">
+	<div class="flex flex-col gap-3 border-t border-slate-100 pt-4 sm:flex-row sm:items-center sm:justify-between sm:gap-0">
+		<div class="flex items-center gap-4 sm:gap-6">
 			<div class="flex items-center gap-1.5 font-sans text-xs text-slate-500">
 				<span class="material-symbols-outlined" style="font-size: 18px;">description</span>
 				{order.size || '2.4 MB (PDF)'}

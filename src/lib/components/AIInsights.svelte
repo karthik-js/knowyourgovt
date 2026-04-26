@@ -2,7 +2,7 @@
 	let { takeaways, summary }: { takeaways: string[]; summary: string } = $props();
 </script>
 
-<aside class="sticky top-16 flex h-[calc(100vh-64px)] flex-col overflow-y-auto border-l border-slate-200 bg-[#F4F5F7] p-6">
+<aside class="bg-[#F4F5F7] p-6 lg:sticky lg:top-16 lg:h-[calc(100vh-64px)] lg:overflow-y-auto lg:border-l lg:border-slate-200">
 	<div class="mb-6 flex items-center gap-2">
 		<span class="material-symbols-outlined text-[#004B87]" style="font-variation-settings: 'FILL' 1;">analytics</span>
 		<h3 class="font-serif text-lg font-bold">Document Insights</h3>

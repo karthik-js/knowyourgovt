@@ -1,6 +1,8 @@
 <script lang="ts">
 	import GOCard from '$lib/components/GOCard.svelte';
 
+	let showFilters = $state(false);
+
 	const orders = [
 		{
 			number: 'G.O.Ms.No. 142',
@@ -42,22 +44,34 @@
 	<title>GO Directory - Know Your Government</title>
 </svelte:head>
 
-<div class="mx-auto flex w-full max-w-[1440px]">
+<div class="mx-auto flex w-full max-w-[1440px] flex-col lg:flex-row">
+	<!-- Mobile Filter Toggle -->
+	<div class="flex items-center justify-between border-b border-slate-200 bg-[#F4F5F7] px-4 py-3 lg:hidden">
+		<h2 class="font-serif text-lg font-bold text-[#004B87]">GO Directory</h2>
+		<button
+			class="flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 py-2 font-sans text-sm font-semibold text-primary"
+			onclick={() => showFilters = !showFilters}
+		>
+			<span class="material-symbols-outlined text-lg">tune</span>
+			Filters
+		</button>
+	</div>
+
 	<!-- Sidebar Filters -->
-	<aside class="sticky top-16 flex h-[calc(100vh-64px)] w-[250px] flex-shrink-0 flex-col gap-2 border-r border-slate-200 bg-[#F4F5F7] px-4 py-6">
-		<div class="mb-6 px-2">
+	<aside class="{showFilters ? 'flex' : 'hidden'} flex-col gap-2 border-b border-slate-200 bg-[#F4F5F7] px-4 py-6 lg:sticky lg:top-16 lg:flex lg:h-[calc(100vh-64px)] lg:w-[250px] lg:flex-shrink-0 lg:border-b-0 lg:border-r">
+		<div class="mb-6 hidden px-2 lg:block">
 			<h2 class="font-serif text-lg font-bold text-[#004B87]">GO Filters</h2>
 		</div>
 		<div class="space-y-4 px-2">
 			<div class="mt-2 space-y-2">
 				<span class="block font-sans text-[13px] font-semibold uppercase tracking-wider text-slate-400">DATE RANGE</span>
-				<div class="space-y-2">
+				<div class="grid grid-cols-2 gap-2 lg:grid-cols-1">
 					<input class="form-input w-full px-2 py-1 text-sm" type="date" />
 					<input class="form-input w-full px-2 py-1 text-sm" type="date" />
 				</div>
 			</div>
 		</div>
-		<button class="mx-2 mt-auto rounded-lg bg-primary-container py-2 font-sans text-sm font-semibold text-white transition-opacity hover:opacity-90">
+		<button class="mx-2 mt-4 rounded-lg bg-primary-container py-2 font-sans text-sm font-semibold text-white transition-opacity hover:opacity-90 lg:mt-auto">
 			Apply Filters
 		</button>
 	</aside>
@@ -65,10 +79,10 @@
 	<!-- Content Area -->
 	<section class="min-h-screen min-w-0 flex-1 bg-[#F4F5F7] pb-12">
 		<!-- Search & Hero -->
-		<div class="border-b border-slate-200 bg-white px-10 py-12">
+		<div class="border-b border-slate-200 bg-white px-4 py-8 sm:px-6 md:px-10 md:py-12">
 			<div class="max-w-[800px]">
-				<h1 class="mb-2 font-serif text-[28px] font-bold text-primary">Government Orders Directory</h1>
-				<p class="mb-8 font-sans text-[15px] leading-relaxed text-slate-500">Search the official repository of Government Orders, Circulars, and Administrative Directives issued by the State of Andhra Pradesh.</p>
+				<h1 class="mb-2 font-serif text-2xl font-bold text-primary md:text-[28px]">Government Orders Directory</h1>
+				<p class="mb-6 font-sans text-sm leading-relaxed text-slate-500 md:mb-8 md:text-[15px]">Search the official repository of Government Orders, Circulars, and Administrative Directives issued by the State of Andhra Pradesh.</p>
 				<div class="group relative">
 					<span class="material-symbols-outlined absolute left-5 top-1/2 -translate-y-1/2 text-2xl text-primary transition-colors group-focus-within:text-secondary-container">search</span>
 					<input
@@ -82,10 +96,10 @@
 		</div>
 
 		<!-- Feed Header -->
-		<div class="flex items-center justify-between px-10 py-6">
+		<div class="flex flex-col gap-3 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6 md:px-10 md:py-6">
 			<div class="flex items-center gap-4">
 				<h3 class="font-sans text-[13px] font-semibold uppercase tracking-wider text-slate-500">CHRONOLOGICAL FEED</h3>
-				<div class="h-px w-24 bg-slate-200"></div>
+				<div class="hidden h-px w-24 bg-slate-200 sm:block"></div>
 			</div>
 			<div class="flex items-center gap-2">
 				<span class="font-sans text-xs text-slate-500">SORT BY:</span>
@@ -98,7 +112,7 @@
 		</div>
 
 		<!-- Feed Content -->
-		<div class="space-y-4 px-10">
+		<div class="space-y-4 px-4 sm:px-6 md:px-10">
 			{#each orders as order (order.number)}
 				<GOCard {order} />
 			{/each}
