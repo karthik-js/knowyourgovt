@@ -44,10 +44,7 @@
 				Ref: {order.id.slice(0, 20)}...
 			</div>
 		</div>
-		<div class="flex items-center gap-3">
-			<button class="p-2 text-slate-400 transition-colors hover:text-primary">
-				<span class="material-symbols-outlined">bookmark</span>
-			</button>
+		<div class="flex items-center">
 			<a
 				href={resolve(`/go-directory/${encodeURIComponent(order.id)}`)}
 				class="btn-outline flex items-center gap-2 px-4 py-1.5 text-sm"

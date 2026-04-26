@@ -1,17 +1,18 @@
 <script lang="ts">
 	import GOCard from '$lib/components/GOCard.svelte';
 	import { goto } from '$app/navigation';
+	import { navigating } from '$app/state';
 
 	let { data } = $props();
+	let loading = $derived(!!navigating.to);
 
 	let showFilters = $state(false);
 	let searchQuery = $state(data.search || '');
 	let selectedYear = $state(data.year || '');
 	let sortOrder = $state(data.sort || 'desc');
 
-	const years = $derived(
-		[...new Set(data.gos.map((go) => go.year))].sort((a, b) => b.localeCompare(a))
-	);
+	const currentYear = new Date().getFullYear();
+	const years = Array.from({ length: currentYear - 1947 + 1 }, (_, i) => String(currentYear - i));
 
 	function applyFilters() {
 		const params = new URLSearchParams();
@@ -75,9 +76,17 @@
 		<div class="mt-4 flex gap-2 px-2">
 			<button
 				onclick={applyFilters}
-				class="flex-1 rounded-lg bg-primary-container py-2 font-sans text-sm font-semibold text-white transition-opacity hover:opacity-90"
+				disabled={loading}
+				class="flex-1 rounded-lg bg-primary-container py-2 font-sans text-sm font-semibold text-white transition-opacity hover:opacity-90 disabled:opacity-60"
 			>
-				Apply
+				{#if loading}
+					<span class="inline-flex items-center gap-1.5">
+						<span class="inline-block h-3.5 w-3.5 animate-spin rounded-full border-2 border-white/30 border-t-white"></span>
+						Loading
+					</span>
+				{:else}
+					Apply
+				{/if}
 			</button>
 			<button
 				onclick={clearFilters}
@@ -130,14 +139,32 @@
 
 		<!-- Feed Content -->
 		<div class="space-y-4 px-4 sm:px-6 md:px-10">
-			{#each data.gos as order (order.id)}
-				<GOCard {order} />
+			{#if loading}
+				{#each { length: 5 } as _}
+					<div class="animate-pulse rounded-lg border border-slate-200 bg-white p-5">
+						<div class="mb-3 flex items-center gap-3">
+							<div class="h-5 w-14 rounded bg-slate-200"></div>
+							<div class="h-4 w-20 rounded bg-slate-100"></div>
+						</div>
+						<div class="mb-2 h-5 w-3/4 rounded bg-slate-200"></div>
+						<div class="mb-1 h-4 w-full rounded bg-slate-100"></div>
+						<div class="mb-4 h-4 w-2/3 rounded bg-slate-100"></div>
+						<div class="flex items-center justify-between">
+							<div class="h-3 w-24 rounded bg-slate-100"></div>
+							<div class="h-6 w-16 rounded-full bg-slate-100"></div>
+						</div>
+					</div>
+				{/each}
 			{:else}
-				<div class="rounded border border-slate-200 bg-white p-10 text-center">
-					<span class="material-symbols-outlined mb-2 text-4xl text-slate-300">search_off</span>
-					<p class="font-sans text-sm text-slate-500">No government orders found matching your search.</p>
-				</div>
-			{/each}
+				{#each data.gos as order (order.id)}
+					<GOCard {order} />
+				{:else}
+					<div class="rounded border border-slate-200 bg-white p-10 text-center">
+						<span class="material-symbols-outlined mb-2 text-4xl text-slate-300">search_off</span>
+						<p class="font-sans text-sm text-slate-500">No government orders found matching your search.</p>
+					</div>
+				{/each}
+			{/if}
 		</div>
 	</section>
 </div>

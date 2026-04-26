@@ -3,11 +3,12 @@
 	import favicon from '$lib/assets/favicon.svg';
 	import Navbar from '$lib/components/Navbar.svelte';
 	import Footer from '$lib/components/Footer.svelte';
-	import { page } from '$app/state';
+	import { page, navigating } from '$app/state';
 
 	let { children } = $props();
 
 	let hideFooter = $derived(page.url.pathname.startsWith('/go-directory/') && page.url.pathname !== '/go-directory/');
+	let isNavigating = $derived(!!navigating.to);
 </script>
 
 <svelte:head>
@@ -17,6 +18,11 @@
 </svelte:head>
 
 <div class="flex min-h-screen flex-col bg-background text-on-surface font-sans antialiased">
+	{#if isNavigating}
+		<div class="fixed inset-x-0 top-0 z-50 h-2 bg-primary/10">
+			<div class="nav-progress h-full bg-secondary-container"></div>
+		</div>
+	{/if}
 	<Navbar />
 	<main class="flex-grow">
 		{@render children()}
