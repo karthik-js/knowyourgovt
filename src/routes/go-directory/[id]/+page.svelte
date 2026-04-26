@@ -1,22 +1,34 @@
 <script lang="ts">
 	import AIInsights from '$lib/components/AIInsights.svelte';
 
+	let { data } = $props();
+
 	let zoom = $state(100);
 	let showInsights = $state(false);
 
-	const summary =
-		'This order authorizes the allocation of ₹450 Crores for urban infrastructure. It specifically targets municipal development and mandates the Director of Municipal Administration to initiate fund distribution for ongoing projects.';
-
-	const takeaways = [
-		'Administrative Sanction for ₹450 Crores towards Urban Infrastructure Development Projects',
-		'Targets selected municipalities for infrastructure improvements',
-		'Director of Municipal Administration authorized to take further action',
-		'Follows orders issued via G.O.Rt.No. 1284 and U.O.Note No. 4210'
-	];
+	const go = $derived(data.go);
+	const summary = $derived(go.aiOverview || go.description);
+	const takeaways = $derived(
+		go.pdfText
+			? go.pdfText
+				.split(/(?:ORDER:|O R D E R:)/)
+				.slice(1)
+				.join('')
+				.split(/\d+\.\s+/)
+				.filter((s: string) => s.trim().length > 20)
+				.slice(0, 4)
+				.map((s: string) => s.trim().replace(/\s+/g, ' ').slice(0, 200))
+			: [go.description]
+	);
+	const formattedDate = $derived(
+		new Date(go.scrapedAt).toLocaleDateString('en-GB', {
+			day: '2-digit', month: '2-digit', year: 'numeric'
+		})
+	);
 </script>
 
 <svelte:head>
-	<title>GO Reading Room - Know Your Government</title>
+	<title>{go.title} - Know Your Government</title>
 </svelte:head>
 
 <div class="mx-auto flex w-full max-w-[1440px] flex-col lg:h-[calc(100vh-64px)] lg:flex-row">
@@ -25,12 +37,12 @@
 		<!-- Toolbar -->
 		<div class="sticky top-16 z-10 flex flex-shrink-0 flex-wrap items-center gap-3 bg-white p-4 sm:p-6 lg:static">
 			<div class="flex flex-wrap items-center gap-3 sm:gap-4">
-				<button class="flex items-center gap-2 font-semibold text-[#004B87] transition-all hover:opacity-80">
+				<a href="/go-directory" class="flex items-center gap-2 font-semibold text-[#004B87] transition-all hover:opacity-80">
 					<span class="material-symbols-outlined">arrow_back</span>
 					<span class="font-sans text-xs font-medium uppercase tracking-widest">Back to Results</span>
-				</button>
+				</a>
 				<div class="hidden h-4 w-px bg-slate-200 min-[480px]:block"></div>
-				<span class="w-full font-sans text-xs font-medium uppercase tracking-widest text-slate-500 min-[480px]:w-auto">GO.MS.No 42 | FINANCE DEPARTMENT</span>
+				<span class="w-full font-sans text-xs font-medium uppercase tracking-widest text-slate-500 min-[480px]:w-auto">{go.year} | {go.title.slice(0, 50)}{go.title.length > 50 ? '...' : ''}</span>
 			</div>
 			<div class="ml-auto flex items-center gap-2">
 				<button
@@ -45,10 +57,10 @@
 				>
 					<span class="material-symbols-outlined">zoom_out</span>
 				</button>
-				<button class="flex items-center gap-2 rounded bg-[#004B87] px-4 py-2 text-white transition-all hover:opacity-90">
+				<a href={go.pdfUrl} target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 rounded bg-[#004B87] px-4 py-2 text-white transition-all hover:opacity-90">
 					<span class="material-symbols-outlined" style="font-size: 20px;">download</span>
 					<span class="font-sans text-xs font-medium">PDF</span>
-				</button>
+				</a>
 				<button
 					class="flex items-center gap-1.5 rounded bg-slate-100 px-3 py-2 font-sans text-xs font-semibold text-primary transition-colors hover:bg-slate-200 lg:hidden"
 					onclick={() => showInsights = !showInsights}
@@ -68,43 +80,27 @@
 				<!-- Government Seal Header -->
 				<div class="mb-12 flex flex-col items-center text-center">
 					<h1 class="font-serif text-xl font-bold uppercase tracking-widest text-slate-800">Government of Andhra Pradesh</h1>
-					<h2 class="font-serif text-lg font-bold text-slate-700">Abstract</h2>
+					<h2 class="font-serif text-lg font-bold text-slate-700">{go.title}</h2>
+					<p class="mt-2 font-sans text-sm text-slate-500">Dated: {formattedDate}</p>
 				</div>
 
-				<!-- Document Content -->
-				<div class="space-y-6 text-slate-800">
-					<p class="border-l-4 border-[#004B87] bg-slate-50 py-2 pl-4 font-sans text-[15px] italic leading-relaxed">
-						Finance Department - Budget Estimates 2024-25 - Release of funds for Municipal Administration and Urban Development - Administrative Sanction - Accorded.
-					</p>
-
-					<div class="border-b pb-1 font-sans text-[13px] font-semibold uppercase tracking-wider text-slate-500">FINANCE (BUDGET.I) DEPARTMENT</div>
-
-					<div class="flex items-start justify-between">
-						<div class="font-sans text-sm font-bold">G.O.Ms.No. 42</div>
-						<div class="text-right font-sans text-sm">Dated: 24-05-2024<br/>Read the following:</div>
+				{#if go.pdfText}
+					<!-- Document Content from PDF -->
+					<div class="space-y-4 text-slate-800">
+						{#each go.pdfText.split(/\n\n|(?=P a g e \|)/) as paragraph}
+							{#if paragraph.trim()}
+								<p class="font-sans text-[15px] leading-relaxed">{paragraph.trim()}</p>
+							{/if}
+						{/each}
 					</div>
-
-					<ol class="ml-6 list-decimal space-y-2 font-sans text-sm text-slate-700">
-						<li>G.O.Rt.No. 1284, Finance (Budget.I) Department, dt.15.03.2024</li>
-						<li>U.O.Note No. 4210/MA&amp;UD/2024, dt.10.05.2024</li>
-					</ol>
-
-					<h3 class="mt-10 border-t pt-6 font-serif text-lg font-bold">ORDER:</h3>
-					<p class="font-sans text-[15px] leading-relaxed">
-						In pursuance of the orders issued in the references 1st and 2nd read above, Government hereby accord Administrative Sanction for an amount of <span class="font-bold underline decoration-[#004B87]">₹450,00,00,000/- (Rupees Four Hundred and Fifty Crores only)</span> towards the implementation of Urban Infrastructure Development Projects in selected municipalities.
-					</p>
-					<p class="font-sans text-[15px] leading-relaxed">
-						The Director of Municipal Administration, AP is requested to take further necessary action in the matter accordingly.
-					</p>
-
-					<div class="mt-20 flex flex-col items-end">
-						<div class="text-center">
-							<p class="font-sans text-[13px] font-semibold uppercase tracking-wider">(BY ORDER AND IN THE NAME OF THE GOVERNOR OF ANDHRA PRADESH)</p>
-							<p class="mt-8 font-serif text-lg font-bold">Dr. S. Sivaraman</p>
-							<p class="font-sans text-sm">Special Chief Secretary to Government</p>
-						</div>
+				{:else}
+					<!-- No text extracted -->
+					<div class="flex flex-col items-center justify-center py-20 text-center">
+						<span class="material-symbols-outlined mb-4 text-5xl text-slate-300">description</span>
+						<p class="font-sans text-sm text-slate-500">PDF text not yet available for this Government Order.</p>
+						<a href={go.pdfUrl} target="_blank" rel="noopener noreferrer" class="mt-4 font-sans text-sm font-semibold text-primary underline">Download Original PDF</a>
 					</div>
-				</div>
+				{/if}
 
 				<!-- Watermark -->
 				<div class="pointer-events-none absolute inset-0 flex select-none items-center justify-center opacity-[0.03]">

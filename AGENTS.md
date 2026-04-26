@@ -21,3 +21,43 @@ You MUST use this tool whenever writing Svelte code before sending it to the use
 
 Generates a Svelte Playground link with the provided code.
 After completing the code, ask the user if they want a playground link. Only call this tool after user confirmation and NEVER if code was written to files in their project.
+
+---
+
+## AP GO Scraper API
+
+This project consumes the AP GO Scraper API. The OpenAPI 3.0.3 spec is hosted at:
+
+**Spec URL:** https://ap-go-scraper.vercel.app/openapi.yaml
+
+Do NOT save a local copy of the spec. Always fetch it from the URL above when you need endpoint details.
+
+**Base URL:** `https://ap-go-scraper.vercel.app`
+
+### Key Endpoints
+
+| Method | Path | Description | Query Params |
+|--------|------|-------------|--------------|
+| GET | `/api/gos` | List all Government Orders | `year`, `search`, `sort=asc\|desc` |
+| GET | `/api/gos/{id}` | Get a specific GO | — |
+| POST | `/api/chat` | Ask AI about a GO (streamed) | Body: `{ goId, question }` |
+
+### GO Object Shape
+
+```ts
+interface GO {
+  id: string;        // e.g. "2024-go-ms42"
+  year: string;
+  title: string;
+  description: string;
+  pdfUrl: string;
+  aiOverview: string; // AI-generated summary
+  status: "pending" | "done" | "failed";
+  scrapedAt: string;  // ISO date-time
+}
+```
+
+### Usage in this project
+
+- API client: `src/lib/api.ts` — exports `fetchGOs()`, `fetchGO()`, `chatWithGO()`
+- Server loads in `src/routes/go-directory/+page.server.ts` and `[id]/+page.server.ts`
