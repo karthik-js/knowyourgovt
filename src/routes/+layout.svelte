@@ -17,12 +17,13 @@
 	<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
 </svelte:head>
 
+{#if isNavigating}
+	<div class="fixed inset-x-0 top-0 z-[60] h-1">
+		<div class="nav-progress h-full bg-secondary-container"></div>
+	</div>
+{/if}
+
 <div class="flex min-h-screen flex-col bg-background text-on-surface font-sans antialiased">
-	{#if isNavigating}
-		<div class="fixed inset-x-0 top-0 z-50 h-2 bg-primary/10">
-			<div class="nav-progress h-full bg-secondary-container"></div>
-		</div>
-	{/if}
 	<Navbar />
 	<main class="flex-grow">
 		{@render children()}
