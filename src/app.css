@@ -4,79 +4,103 @@
 	--font-serif: 'Newsreader', Georgia, serif;
 	--font-sans: 'Public Sans', system-ui, sans-serif;
 
-	/* Material Design 3 color tokens - Academic High-Contrast */
-	--color-primary: #000000;
+	/* Material Design 3 color tokens */
+	--color-primary: #003461;
 	--color-on-primary: #ffffff;
-	--color-secondary: #5f5e5e;
-	--color-on-surface: #1b1c19;
-	--color-on-surface-variant: #444748;
-	--color-on-background: #1b1c19;
-	--color-background: #fbf9f4;
-	--color-surface: #fbf9f4;
-	--color-surface-container: #f0eee9;
-	--color-surface-container-low: #f5f3ee;
-	--color-surface-container-high: #eae8e3;
-	--color-surface-container-highest: #e4e2dd;
+	--color-primary-container: #004b87;
+	--color-on-primary-container: #8abcff;
+	--color-primary-fixed: #d3e4ff;
+	--color-primary-fixed-dim: #a3c9ff;
+	--color-secondary: #9b4500;
+	--color-on-secondary: #ffffff;
+	--color-secondary-container: #fd8a42;
+	--color-secondary-fixed: #ffdbca;
+	--color-secondary-fixed-dim: #ffb68e;
+	--color-tertiary: #572500;
+	--color-on-tertiary: #ffffff;
+	--color-tertiary-container: #793701;
+	--color-tertiary-fixed: #ffdbc8;
+	--color-tertiary-fixed-dim: #ffb68b;
+	--color-error: #ba1a1a;
+	--color-on-error: #ffffff;
+	--color-error-container: #ffdad6;
+	--color-on-surface: #191c20;
+	--color-on-surface-variant: #424750;
+	--color-on-background: #191c20;
+	--color-background: #f9f9ff;
+	--color-surface: #f9f9ff;
+	--color-surface-dim: #d9dadf;
+	--color-surface-bright: #f9f9ff;
+	--color-surface-container: #ededf3;
+	--color-surface-container-low: #f3f3f9;
+	--color-surface-container-high: #e7e8ed;
+	--color-surface-container-highest: #e1e2e8;
 	--color-surface-container-lowest: #ffffff;
-	--color-outline: #747878;
-	--color-outline-variant: #c4c7c7;
+	--color-surface-variant: #e1e2e8;
+	--color-outline: #727781;
+	--color-outline-variant: #c2c6d1;
+	--color-inverse-surface: #2e3035;
+	--color-inverse-on-surface: #f0f0f6;
+	--color-inverse-primary: #a3c9ff;
+	--color-surface-tint: #27609d;
 
 	/* Spacing tokens */
-	--spacing-unit: 4px;
-	--spacing-stack-sm: 8px;
-	--spacing-stack-md: 24px;
-	--spacing-stack-lg: 48px;
-	--spacing-gutter: 24px;
-	--spacing-margin-edge: 48px;
-	--spacing-section-gap: 80px;
-	--spacing-container-max: 1140px;
+	--spacing-section-gap: 1.5rem;
+	--spacing-gutter: 2rem;
+	--spacing-sidebar-width: 250px;
+	--spacing-container-max: 1440px;
+	--spacing-card-padding: 1.25rem;
 }
 
 body {
-	font-family: var(--font-serif);
+	font-family: var(--font-sans);
 	background-color: var(--color-background);
-	color: var(--color-on-background);
-	font-size: 16px;
-	line-height: 1.6;
-	letter-spacing: 0.01em;
+	color: var(--color-on-surface);
+	font-size: 14px;
+	line-height: 1.5;
 }
 
-/* Academic structural styles */
-.academic-rule {
-	border-top: 1px solid var(--color-primary);
-	margin: var(--spacing-stack-md) 0;
+/* Material Symbols */
+.material-symbols-outlined {
+	font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+	vertical-align: middle;
 }
 
-.academic-border {
-	border: 1px solid var(--color-primary);
-}
-
-.button-primary {
+/* Button styles */
+.btn-primary {
 	background-color: var(--color-primary);
 	color: var(--color-on-primary);
-	border: 1px solid var(--color-primary);
+	border-radius: 0.25rem;
+	transition: opacity 0.15s;
 }
-.button-primary:hover {
-	background-color: var(--color-on-primary);
-	color: var(--color-primary);
+.btn-primary:hover {
+	opacity: 0.9;
+}
+.btn-primary:active {
+	transform: scale(0.98);
 }
 
-.button-secondary {
-	background-color: var(--color-surface);
-	color: var(--color-primary);
+.btn-outline {
 	border: 1px solid var(--color-primary);
+	color: var(--color-primary);
+	border-radius: 0.25rem;
+	font-weight: 700;
+	transition: all 0.15s;
 }
-.button-secondary:hover {
+.btn-outline:hover {
 	background-color: var(--color-primary);
-	color: var(--color-on-primary);
+	color: white;
 }
 
-.academic-input {
-	border: none;
-	border-bottom: 0.5px solid var(--color-primary);
-	background: transparent;
+/* Form input styles */
+.form-input {
+	border: 1px solid var(--color-outline);
+	padding: 0.75rem;
+	border-radius: 0.125rem;
 	outline: none;
+	transition: all 0.15s;
 }
-.academic-input:focus {
-	border-bottom: 2px solid var(--color-primary);
+.form-input:focus {
+	box-shadow: 0 0 0 2px var(--color-primary);
+	border-color: transparent;
 }

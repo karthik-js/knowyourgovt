@@ -4,13 +4,13 @@
 	let zoom = $state(100);
 
 	const summary =
-		'This Government Order officially mandates the implementation of the 11th Pay Revision Commission\'s recommendations for all state government employees, establishing a new Master Scale for the year 2022 with revised pay structures across all cadres.';
+		'This order authorizes the allocation of ₹450 Crores for urban infrastructure. It specifically targets municipal development and mandates the Director of Municipal Administration to initiate fund distribution for ongoing projects.';
 
 	const takeaways = [
-		'Implementation of the 11th PRC recommendations is approved with immediate effect',
-		'A new Master Scale for the year 2022 is established replacing the 2015 scale',
-		'Decision follows comprehensive review by Committee of Secretaries constituted in June 2021',
-		'Supersedes all previous preliminary orders regarding interim relief and ad-hoc allowances'
+		'Administrative Sanction for ₹450 Crores towards Urban Infrastructure Development Projects',
+		'Targets selected municipalities for infrastructure improvements',
+		'Director of Municipal Administration authorized to take further action',
+		'Follows orders issued via G.O.Rt.No. 1284 and U.O.Note No. 4210'
 	];
 </script>
 
@@ -18,108 +18,96 @@
 	<title>GO Reading Room - Know Your Government</title>
 </svelte:head>
 
-<div class="flex w-full flex-grow">
-	<!-- Document Viewer (2/3) -->
-	<div class="flex flex-grow flex-col">
+<div class="mx-auto flex h-[calc(100vh-64px)] w-full max-w-[1440px]">
+	<!-- Document Viewer -->
+	<section class="flex min-w-0 flex-1 flex-col border-r border-slate-200 bg-white">
 		<!-- Toolbar -->
-		<div class="flex items-center justify-between border-b border-[#c4c7c7] bg-[#fbf9f4] px-6 py-3">
-			<div class="flex items-center gap-3">
-				<span class="rounded-sm bg-[#f0eee9] px-2 py-0.5 font-sans text-xs uppercase text-black" style="letter-spacing: 0.04em;">
-					G.O.Ms.No. 42
-				</span>
-				<span class="font-sans text-xs uppercase text-[#5f5e5e]" style="letter-spacing: 0.04em;">
-					Finance Department
-				</span>
+		<div class="flex flex-shrink-0 items-center justify-between p-6">
+			<div class="flex items-center gap-4">
+				<button class="flex items-center gap-2 font-semibold text-[#004B87] transition-all hover:opacity-80">
+					<span class="material-symbols-outlined">arrow_back</span>
+					<span class="font-sans text-xs font-medium uppercase tracking-widest">Back to Results</span>
+				</button>
+				<div class="h-4 w-px bg-slate-200"></div>
+				<span class="font-sans text-xs font-medium uppercase tracking-widest text-slate-500">GO.MS.No 42 | FINANCE DEPARTMENT</span>
 			</div>
 			<div class="flex items-center gap-2">
 				<button
 					onclick={() => { if (zoom > 25) zoom -= 25; }}
-					class="flex h-8 w-8 items-center justify-center rounded-sm transition-none hover:bg-[#f0eee9]"
+					class="rounded bg-slate-100 p-2 transition-colors hover:bg-slate-200"
 				>
-					<span class="material-symbols-outlined text-lg text-black">remove</span>
+					<span class="material-symbols-outlined">zoom_in</span>
 				</button>
-				<span class="min-w-[3rem] text-center font-sans text-xs text-[#5f5e5e]">{zoom}%</span>
 				<button
 					onclick={() => { if (zoom < 200) zoom += 25; }}
-					class="flex h-8 w-8 items-center justify-center rounded-sm transition-none hover:bg-[#f0eee9]"
+					class="rounded bg-slate-100 p-2 transition-colors hover:bg-slate-200"
 				>
-					<span class="material-symbols-outlined text-lg text-black">add</span>
+					<span class="material-symbols-outlined">zoom_out</span>
 				</button>
-				<div class="mx-2 h-4 w-px bg-[#c4c7c7]"></div>
-				<button class="flex h-8 w-8 items-center justify-center rounded-sm transition-none hover:bg-[#f0eee9]">
-					<span class="material-symbols-outlined text-lg text-black">download</span>
+				<button class="flex items-center gap-2 rounded bg-[#004B87] px-4 py-2 text-white transition-all hover:opacity-90">
+					<span class="material-symbols-outlined" style="font-size: 20px;">download</span>
+					<span class="font-sans text-xs font-medium">PDF</span>
 				</button>
 			</div>
 		</div>
 
-		<!-- Document Canvas -->
-		<div class="flex flex-grow items-start justify-center overflow-auto bg-[#f0eee9] p-10">
+		<!-- PDF Canvas (scrollable) -->
+		<div class="min-h-0 flex-1 overflow-y-auto border-t border-outline-variant bg-surface-container-low p-12 shadow-inner">
 			<div
-				class="w-full max-w-[680px] bg-white p-12 shadow-md"
+				class="relative mx-auto min-h-[1000px] max-w-[700px] border border-slate-200 bg-white p-16 shadow-lg"
 				style="transform: scale({zoom / 100}); transform-origin: top center;"
 			>
-				<!-- Formal Header -->
-				<div class="mb-8 text-center">
-					<p class="font-sans text-xs font-semibold uppercase text-[#5f5e5e]" style="letter-spacing: 0.1em;">
-						Government of Andhra Pradesh
-					</p>
-					<p class="mt-1 font-serif text-sm text-[#444748]">
-						Finance (HR.I-Plg. &amp; Policy) Department
-					</p>
+				<!-- Government Seal Header -->
+				<div class="mb-12 flex flex-col items-center text-center">
+					<h1 class="font-serif text-xl font-bold uppercase tracking-widest text-slate-800">Government of Andhra Pradesh</h1>
+					<h2 class="font-serif text-lg font-bold text-slate-700">Abstract</h2>
 				</div>
 
-				<hr class="mb-8 border-black" />
-
-				<!-- Abstract -->
-				<div class="mb-8">
-					<h2 class="mb-3 font-sans text-xs font-semibold uppercase text-black" style="letter-spacing: 0.06em;">Abstract</h2>
-					<p class="font-serif text-base leading-relaxed text-[#444748]">
-						FINANCE (HR.I-Plg. &amp; Policy) DEPARTMENT — Public Services —
-						Implementation of 11th Pay Revision Commission — Master Scale — Revised
-						Scales of Pay 2022 — Orders — Issued.
+				<!-- Document Content -->
+				<div class="space-y-6 text-slate-800">
+					<p class="border-l-4 border-[#004B87] bg-slate-50 py-2 pl-4 font-sans text-[15px] italic leading-relaxed">
+						Finance Department - Budget Estimates 2024-25 - Release of funds for Municipal Administration and Urban Development - Administrative Sanction - Accorded.
 					</p>
-				</div>
 
-				<!-- GO Number -->
-				<div class="mb-8">
-					<p class="font-serif text-base font-semibold text-black">
-						G.O.Ms.No.1 &nbsp;&nbsp;&nbsp; Dated: 17-01-2022
-					</p>
-				</div>
+					<div class="border-b pb-1 font-sans text-[13px] font-semibold uppercase tracking-wider text-slate-500">FINANCE (BUDGET.I) DEPARTMENT</div>
 
-				<hr class="mb-8 border-[#c4c7c7]" />
+					<div class="flex items-start justify-between">
+						<div class="font-sans text-sm font-bold">G.O.Ms.No. 42</div>
+						<div class="text-right font-sans text-sm">Dated: 24-05-2024<br/>Read the following:</div>
+					</div>
 
-				<!-- References -->
-				<div class="mb-8">
-					<h2 class="mb-3 font-sans text-xs font-semibold uppercase text-black" style="letter-spacing: 0.06em;">
-						Read the following:
-					</h2>
-					<ol class="list-decimal space-y-2 pl-5 font-serif text-base leading-relaxed text-[#444748]">
-						<li>G.O.Ms.No.75, General Administration (SC.A) Department, dated 28.05.2018</li>
-						<li>G.O.Rt.No.75, General Administration (SC.A) Department, dated 02.06.2018</li>
-						<li>Report of the 11th Pay Revision Commission submitted on 05.10.2020</li>
+					<ol class="ml-6 list-decimal space-y-2 font-sans text-sm text-slate-700">
+						<li>G.O.Rt.No. 1284, Finance (Budget.I) Department, dt.15.03.2024</li>
+						<li>U.O.Note No. 4210/MA&amp;UD/2024, dt.10.05.2024</li>
 					</ol>
+
+					<h3 class="mt-10 border-t pt-6 font-serif text-lg font-bold">ORDER:</h3>
+					<p class="font-sans text-[15px] leading-relaxed">
+						In pursuance of the orders issued in the references 1st and 2nd read above, Government hereby accord Administrative Sanction for an amount of <span class="font-bold underline decoration-[#004B87]">₹450,00,00,000/- (Rupees Four Hundred and Fifty Crores only)</span> towards the implementation of Urban Infrastructure Development Projects in selected municipalities.
+					</p>
+					<p class="font-sans text-[15px] leading-relaxed">
+						The Director of Municipal Administration, AP is requested to take further necessary action in the matter accordingly.
+					</p>
+
+					<div class="mt-20 flex flex-col items-end">
+						<div class="text-center">
+							<p class="font-sans text-[13px] font-semibold uppercase tracking-wider">(BY ORDER AND IN THE NAME OF THE GOVERNOR OF ANDHRA PRADESH)</p>
+							<p class="mt-8 font-serif text-lg font-bold">Dr. S. Sivaraman</p>
+							<p class="font-sans text-sm">Special Chief Secretary to Government</p>
+						</div>
+					</div>
 				</div>
 
-				<hr class="mb-8 border-[#c4c7c7]" />
-
-				<!-- Order -->
-				<div>
-					<h2 class="mb-3 font-sans text-xs font-semibold uppercase text-black" style="letter-spacing: 0.06em;">Order</h2>
-					<p class="font-serif text-base leading-relaxed text-[#444748]">
-						In pursuance of the recommendations of the 11th Pay Revision Commission and after
-						careful examination by the Committee of Secretaries constituted vide reference 1st
-						read above, the Government hereby orders the implementation of the Revised Master
-						Scale of Pay 2022 for all categories of State Government employees with effect from
-						1st July 2022.
-					</p>
+				<!-- Watermark -->
+				<div class="pointer-events-none absolute inset-0 flex select-none items-center justify-center opacity-[0.03]">
+					<span class="-rotate-45 font-serif text-9xl font-bold">OFFICIAL</span>
 				</div>
 			</div>
 		</div>
-	</div>
+	</section>
 
-	<!-- AI Insights Sidebar (1/3) -->
-	<div class="w-[380px] flex-shrink-0">
+	<!-- AI Insights Sidebar -->
+	<div class="w-[350px] flex-shrink-0">
 		<AIInsights {summary} {takeaways} />
 	</div>
 </div>

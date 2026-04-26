@@ -7,17 +7,21 @@
 
 	let { children } = $props();
 
-	let navVariant = $derived(page.url.pathname === '/' ? 'home' as const : 'default' as const);
+	let hideFooter = $derived(page.url.pathname.startsWith('/go-directory/') && page.url.pathname !== '/go-directory/');
 </script>
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
+	<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
 </svelte:head>
 
-<div class="flex min-h-screen flex-col bg-[#fbf9f4] text-[#1b1c19] font-serif antialiased">
+<div class="flex min-h-screen flex-col bg-background text-on-surface font-sans antialiased">
 	<Navbar />
 	<main class="flex-grow">
 		{@render children()}
 	</main>
-	<Footer variant={navVariant} />
+	{#if !hideFooter}
+		<Footer />
+	{/if}
 </div>
